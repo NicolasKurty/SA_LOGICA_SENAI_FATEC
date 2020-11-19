@@ -1,0 +1,1208 @@
+Algoritmo: SA_Nicolas
+
+var
+
+// MENU
+resposta_menu_principal: caractere
+resposta_cadastro: caractere
+resposta_processo_cursos: caractere
+resp: inteiro
+
+// PROCESSO SELETIVO ADM
+i_adm: inteiro
+nome_adm: vetor [1..5] de caractere
+cpf_adm: vetor [1..5] de caractere
+data_adm: vetor [1..5] de caractere
+nasc_adm: vetor [1..5] de caractere
+curso_adm: vetor [1..5] de caractere
+matricula_adm: vetor [1..5] de caractere
+
+// PROCESSO SELETIVO REDES
+i_redes: inteiro
+nome_redes: vetor [1..5] de caractere
+cpf_redes: vetor [1..5] de caractere
+data_redes: vetor [1..5] de caractere
+nasc_redes: vetor [1..5] de caractere
+curso_redes: vetor [1..5] de caractere
+matricula_redes: vetor [1..5] de caractere
+
+// PROCESSO SELETIVO DESENVOLVIMENTO
+
+i_des: inteiro
+nome_des: vetor [1..5] de caractere
+cpf_des: vetor [1..5] de caractere
+data_des: vetor [1..5] de caractere
+nasc_des: vetor [1..5] de caractere
+curso_des: vetor [1..5] de caractere
+matricula_des: vetor [1..5] de caractere
+
+//==============================================================================
+
+
+// MATRICULA CURSO ADMINISTRAÇÃO
+im_adm: inteiro
+nome_aluno_adm: vetor [1..5] de caractere
+cpf_matricula_adm: vetor [1..5] de caractere
+nome_mae_adm: vetor [1..5] de caractere
+nome_pai_adm: vetor [1..5] de caractere
+end_aluno_adm: vetor [1..5] de caractere
+bairro_aluno_adm: vetor [1..5] de caractere
+matricula_admin: vetor [1..5] de caractere
+
+// MATRICULA CURSO REDES E COMPUTADORES
+im_redes: inteiro
+nome_aluno_redes: vetor [1..5] de caractere
+cpf_matricula_redes: vetor [1..5] de caractere
+nome_mae_redes: vetor [1..5] de caractere
+nome_pai_redes: vetor [1..5] de caractere
+end_aluno_redes: vetor [1..5] de caractere
+bairro_aluno_redes: vetor [1..5] de caractere
+curso_aluno_redes: vetor [1..5] de caractere
+matricula_redes_comp: vetor [1..5] de caractere
+
+// MATRICULA CURSO DESENVOLVIMENTO DE SISTEMAS
+im_des: inteiro
+nome_aluno_ds: vetor [1..5] de caractere
+cpf_matricula_ds: vetor [1..5] de caractere
+nome_mae_ds: vetor [1..5] de caractere
+nome_pai_ds: vetor [1..5] de caractere
+end_aluno_ds: vetor [1..5] de caractere
+bairro_aluno_ds: vetor [1..5] de caractere
+curso_aluno_ds: vetor [1..5] de caractere
+matricula_ds: vetor [1..5] de caractere
+
+//VARIAVEIS MATRICULAS
+resposta_processos_matricula: inteiro
+
+
+// CADASTRO TURMAS
+turmas_cadastro: vetor [1..3] de caractere
+
+// DOCENTES
+cadastro_prof: vetor [1..3] de caractere
+matricula_prof: vetor [1..3] de caractere
+i_docentes: inteiro
+
+// NOTAS ADM
+notas_adm: inteiro
+bim01_adm: vetor [1..5] de inteiro
+bim02_adm: vetor [1..5] de inteiro
+bim03_adm: vetor [1..5] de inteiro
+bim04_adm: vetor [1..5] de inteiro
+
+somabim_adm_aluno01: inteiro
+media_adm_aluno01: real
+somabim_adm_aluno02: inteiro
+media_adm_aluno02: real
+somabim_adm_aluno03: inteiro
+media_adm_aluno03: real
+somabim_adm_aluno04: inteiro
+media_adm_aluno04: real
+somabim_adm_aluno05: inteiro
+media_adm_aluno05: real
+
+soma_media_adm: real
+media_turma_adm: real
+
+// NOTAS REDES
+notas_redes: inteiro
+bim01_redes: vetor [1..5] de inteiro
+bim02_redes: vetor [1..5] de inteiro
+bim03_redes: vetor [1..5] de inteiro
+bim04_redes: vetor [1..5] de inteiro
+
+somabim_redes_aluno01: inteiro
+media_redes_aluno01: real
+somabim_redes_aluno02: inteiro
+media_redes_aluno02: real
+somabim_redes_aluno03: inteiro
+media_redes_aluno03: real
+somabim_redes_aluno04: inteiro
+media_redes_aluno04: real
+somabim_redes_aluno05: inteiro
+media_redes_aluno05: real
+
+
+soma_media_redes: real
+media_turma_redes: real
+
+// NOTAS DESENVOLVIMENTO
+notas_ds: inteiro
+bim01_ds: vetor [1..5] de inteiro
+bim02_ds: vetor [1..5] de inteiro
+bim03_ds: vetor [1..5] de inteiro
+bim04_ds: vetor [1..5] de inteiro
+
+somabim_ds_aluno01: inteiro
+media_ds_aluno01: real
+somabim_ds_aluno02: inteiro
+media_ds_aluno02: real
+somabim_ds_aluno03: inteiro
+media_ds_aluno03: real
+somabim_ds_aluno04: inteiro
+media_ds_aluno04: real
+somabim_ds_aluno05: inteiro
+media_ds_aluno05: real
+
+
+soma_media_ds: real
+media_turma_ds: real
+
+// PESQUISA ADM
+
+pesquisa_aluno: inteiro
+i_pesq_adm: inteiro
+acha_adm: logico
+resposta_pesq_adm: caractere
+
+// PESQUISA REDES
+
+pesquisa_aluno_redes: inteiro
+i_pesq_redes: inteiro
+acha_redes: logico
+resposta_pesq_redes: caractere
+
+// PESQUISA DESENVOLVIMENTO
+
+pesquisa_aluno_ds: inteiro
+i_pesq_ds: inteiro
+acha_ds: logico
+resposta_pesq_ds: caractere
+
+
+
+// RESPOSTAS
+respost_relatorio: inteiro
+resposta_processo: inteiro //usei
+resposta_processo_sub: caractere //usei
+resposta_processo_curso: inteiro //usei
+resposta_processo_menu: inteiro //usei
+resposta_processo_adm: inteiro
+resposta_processo_redes: inteiro
+resposta_processo_des: inteiro
+
+resposta_processo_adm_menu: inteiro //usei
+resposta_processo_redes_menu: inteiro //usei
+resposta_processo_des_menu: inteiro //usei
+
+// INICIO
+procedimento ROTCADASTRO
+inicio
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |                      SISTEMA DE CADASTRO                          |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval ("    |  |                     1 - PROCESSO SELETIVO                         |  |")
+Escreval ("    |  |                     2 - MATRICULAR ALUNO                          |  |")
+Escreval ("    |  |                     3 - CADASTRAR DOCENTE                         |  |")
+Escreval ("    |  |                     4 - ADICIONAR NOTAS                           |  |")
+Escreval
+
+Escreva  ("                        Escreva aqui a opção desejada: ")
+         leia (resposta_cadastro)
+
+escolha resposta_cadastro
+
+caso "1"
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |              INSIRA O CURSO DESEJADO DO CANDIDATO                 |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval ("    Os cursos disponiveis são:                 ")
+Escreval
+Escreval ("    • Administração (Digite '1')               ")
+Escreval ("    • Redes e computadores (Digite '2')        ")
+Escreval ("    • Desenvolvimento de Sistemas (Digite '3') ")
+Escreval
+Escreva  ("    • Digite aqui a sua resposta: ")
+         leia (resposta_processo_cursos)
+         
+escolha resposta_processo_cursos
+
+// PROCESSO SELETIVO ADM
+caso "1"
+
+para i_adm de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |            CADASTRO ADMINISTRAÇÃO - PROCESSO SELETIVO             |  |")
+Escreval ("    |  |                           ALUNO ",i_adm, "                                |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreva ("     • Insira o nome: ")
+        leia (nome_adm[i_adm])
+Escreva ("     • Insira o CPF: ")
+        leia (cpf_adm[i_adm])
+Escreva ("     • Insira a data da prova: ")
+        leia (data_adm[i_adm])
+Escreva ("     • Insira a data de nascimento: ")
+        leia (nasc_adm[i_adm])
+Escreva ("     • Insira o curso desejado: ")
+        leia (curso_adm[i_adm])
+Escreva ("     • Insira a matricula do aluno: ")
+        leia (matricula_adm[i_adm])
+
+Escreval
+
+fimpara
+limpatela
+
+Escreval ("                   • A TURMA DE ADMINISTRAÇÃO FOI CADASTRADA! •                ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                           ")
+Escreval ("                                1 - SIM | 2 - NAO                              ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+//FIM SELETIVO ADM
+
+// PROCESSO SELETIVO REDES
+caso "2"
+
+para i_redes de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |         CADASTRO REDES E COMPUTADORES - PROCESSO SELETIVO         |  |")
+Escreval ("    |  |                           ALUNO ",i_redes, "                                |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreva ("     • Insira o nome: ")
+        leia (nome_redes[i_redes])
+Escreva ("     • Insira o CPF: ")
+        leia (cpf_redes[i_redes])
+Escreva ("     • Insira a data da prova: ")
+        leia (data_redes[i_redes])
+Escreva ("     • Insira a data de nascimento: ")
+        leia (nasc_redes[i_redes])
+Escreva ("     • Insira o curso desejado: ")
+        leia (curso_redes[i_redes])
+Escreva ("     • Insira a matricula do aluno: ")
+        leia (matricula_redes[i_redes])
+
+Escreval
+
+Escreval ("    • ALUNO MATRICULADO NO PROCESSO SELETIVO!                                  ")
+Escreval ("    • NÚMERO DA MATRICULA:", matricula_redes[i_redes])
+
+
+fimpara
+limpatela
+
+Escreval ("               • A TURMA DE REDES E COMPUTADORES FOI CADASTRADA! •             ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                           ")
+Escreval ("                                1 - SIM | 2 - NAO                              ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+// FIM SELETIVO REDES
+         
+// PROCESSO SELETIVO DESENVOLVIMENTO
+caso "3"
+
+para i_des de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |      CADASTRO DESENVOLVIMENTO DE SISTEMAS - PROCESSO SELETIVO     |  |")
+Escreval ("    |  |                           ALUNO ",i_des, "                                |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreva ("     • Insira o nome: ")
+        leia (nome_des[i_des])
+Escreva ("     • Insira o CPF: ")
+        leia (cpf_des[i_des])
+Escreva ("     • Insira a data da prova: ")
+        leia (data_des[i_des])
+Escreva ("     • Insira a data de nascimento: ")
+        leia (nasc_des[i_des])
+Escreva ("     • Insira o curso desejado: ")
+        leia (curso_des[i_des])
+Escreva ("     • Insira a matricula do aluno: ")
+        leia (matricula_des[i_des])
+
+Escreval
+
+fimpara
+limpatela
+
+Escreval ("             • A TURMA DE DESENVOLVIMENTO DE SISTEMAS FOI CADASTRADA! •        ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                           ")
+Escreval ("                                1 - SIM | 2 - NAO                              ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+fimescolha
+fimescolha
+//FINAL SELETIVO DES
+
+//INICIO MATRICULA
+
+escolha resposta_cadastro
+
+caso "2"
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |              INSIRA O CURSO DESEJADO PARA MATRÍCULAR              |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval ("    Selecione o curso:                         ")
+Escreval
+Escreval ("    • Administração (Digite '1')               ")
+Escreval ("    • Redes e computadores (Digite '2')        ")
+Escreval ("    • Desenvolvimento de Sistemas (Digite '3') ")
+Escreval
+Escreva  ("    • Digite aqui a sua resposta: ")
+         leia (resposta_processo_cursos)
+
+escolha resposta_processo_cursos
+
+//MATRICULA ADMINISTRAÇÃO
+caso "1"
+
+para im_adm de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |                                                                         |")
+Escreval ("    |                                                                         |")
+Escreval ("    |                              • SGES •                                   |")
+Escreval ("    |               MATRÍCULA ADMINISTRAÇÃO - PROCESSO MATRÍCULA              |")
+Escreval ("    |                              ALUNO ",im_adm, "                                   |")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval("     • ALUNO: ",im_adm)
+Escreval
+Escreva ("     • Insira o nome: ")
+        leia (nome_aluno_adm[im_adm])
+Escreva ("     • Insira o CPF: ")
+        leia (cpf_matricula_adm[im_adm])
+Escreva ("     • Insira o endereço: ")
+        leia (end_aluno_adm[im_adm])
+Escreva ("     • Insira o bairro: ")
+        leia (bairro_aluno_adm[im_adm])
+Escreva ("     • Insira o nome do PAI: ")
+        leia (nome_pai_adm[im_adm])
+Escreva ("     • Insira o nome da MÃE: ")
+        leia (nome_mae_adm[im_adm])
+Escreva ("     • Insira a matrícula: ")
+        leia (matricula_admin[im_adm])
+
+Escreval
+
+fimpara
+limpatela
+
+Escreval ("               • ALUNOS MATRICULADOS NA TURMA DE ADMINISTRAÇÃO • ")
+Escreval ("               _________________________________________________ ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                           ")
+Escreval ("                                1 - SIM | 2 - NAO                              ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+// FINAL MATRICULA ADM
+
+// INICIO MATRICULA REDES
+caso "2"
+
+para im_redes de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |                                                                         |")
+Escreval ("    |                                                                         |")
+Escreval ("    |                              • SGES •                                   |")
+Escreval ("    |           MATRÍCULA REDES E COMPUTADORES - PROCESSO MATRÍCULA           |")
+Escreval ("    |                              ALUNO ",im_redes, "                                 |")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval("     • ALUNO: ",im_redes)
+Escreval
+Escreva ("     • Insira o nome: ")
+        leia (nome_aluno_redes[im_redes])
+Escreva ("     • Insira o CPF: ")
+        leia (cpf_matricula_redes[im_redes])
+Escreva ("     • Insira o endereço: ")
+        leia (end_aluno_redes[im_redes])
+Escreva ("     • Insira o bairro: ")
+        leia (bairro_aluno_redes[im_redes])
+Escreva ("     • Insira o nome do PAI: ")
+        leia (nome_pai_redes[im_redes])
+Escreva ("     • Insira o nome da MÃE: ")
+        leia (nome_mae_adm[im_redes])
+Escreva ("     • Insira a matrícula: ")
+        leia (matricula_redes_comp[im_redes])
+
+Escreval
+
+fimpara
+limpatela
+
+Escreval ("            • ALUNOS MATRICULADOS NA TURMA DE REDES E COMPUTADORES • ")
+Escreval ("            _______________________________________________________  ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                 ")
+Escreval ("                                1 - SIM | 2 - NAO                    ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+// FINAL MATRICULA REDES
+
+// INICIO MATRICULA DESENVOLVIMENTO
+caso "3"
+
+para im_des de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |                                                                         |")
+Escreval ("    |                                                                         |")
+Escreval ("    |                              • SGES •                                   |")
+Escreval ("    |             MATRÍCULA DESENVOLVIMENTO - PROCESSO MATRÍCULA              |")
+Escreval ("    |                              ALUNO ",im_des, "                                   |")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval("     • ALUNO: ",im_des)
+Escreval
+Escreva ("     • Insira o nome: ")
+        leia (nome_aluno_ds[im_des])
+Escreva ("     • Insira o CPF: ")
+        leia (cpf_matricula_ds[im_des])
+Escreva ("     • Insira o endereço: ")
+        leia (end_aluno_ds[im_des])
+Escreva ("     • Insira o bairro: ")
+        leia (bairro_aluno_ds[im_des])
+Escreva ("     • Insira o nome do PAI: ")
+        leia (nome_pai_ds[im_des])
+Escreva ("     • Insira o nome da MÃE: ")
+        leia (nome_mae_ds[im_des])
+Escreva ("     • Insira a matrícula: ")
+        leia (matricula_ds[im_des])
+
+Escreval
+
+fimpara
+limpatela
+
+Escreval ("              • ALUNOS MATRICULADOS NA TURMA DE DESENVOLVIMENTO •    ")
+Escreval ("            _______________________________________________________  ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                 ")
+Escreval ("                                1 - SIM | 2 - NAO                    ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+// FINAL MATRICULA DESENVOLVIMENTO
+
+fimescolha
+fimescolha
+
+//INICIO CADASTRO DOCENTE ------------------------------------------------------------------
+escolha resposta_cadastro
+
+caso "3"
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |            SELECIONE QUAL CURSO O DOCENTE VAI LESIONAR            |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval ("    Os cursos disponiveis são:                 ")
+Escreval
+Escreval ("    • Administração (Digite '1')               ")
+Escreval ("    • Redes e computadores (Digite '2')        ")
+Escreval ("    • Desenvolvimento de Sistemas (Digite '3') ")
+Escreval
+Escreva  ("    • Digite aqui a sua resposta: ")
+         leia (resposta_processo_cursos)
+
+escolha resposta_processo_cursos
+
+caso "1"
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |               INSIRA AS INFORMAÇÕES NECESSÁRIAS                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreva ("     • Insira o nome do DOCENTE: ")
+        leia (cadastro_prof[1])
+Escreva ("     • Insira o RG do DOCENTE: ")
+        leia (matricula_prof[1])
+
+limpatela
+
+Escreval ("                 • DOCENTE ESTÁ MATRICULADO PARA LESIONAR AULAS •             ")
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                                  ADMINISTRAÇÃO                               ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+        
+        
+caso "2"
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |               INSIRA AS INFORMAÇÕES NECESSÁRIAS                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreva ("     • Insira o nome do DOCENTE: ")
+        leia (cadastro_prof[2])
+Escreva ("     • Insira o RG do DOCENTE: ")
+        leia (matricula_prof[2])
+
+limpatela
+
+Escreval ("                 • DOCENTE ESTÁ MATRICULADO PARA LESIONAR AULAS •             ")
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                                      REDES                                ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+caso "3"
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |               INSIRA AS INFORMAÇÕES NECESSÁRIAS                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreva ("     • Insira o nome do DOCENTE: ")
+        leia (cadastro_prof[3])
+Escreva ("     • Insira o RG do DOCENTE: ")
+        leia (matricula_prof[3])
+
+limpatela
+
+Escreval ("                 • DOCENTE ESTÁ MATRICULADO PARA LESIONAR AULAS •             ")
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                                 DESENVOLVIMENTO                                ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+
+fimescolha
+fimescolha
+//FIM CADASTRO DOCENTE
+
+//INICIO ADICIONAR NOTAS -------------------------------------------------------
+
+escolha resposta_cadastro
+
+caso "4"
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |              INSIRA O CURSO PARA ADICIONAR AS NOTAS               |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval ("    Selecione o curso:                         ")
+Escreval
+Escreval ("    • Administração (Digite '1')               ")
+Escreval ("    • Redes e computadores (Digite '2')        ")
+Escreval ("    • Desenvolvimento de Sistemas (Digite '3') ")
+Escreval
+Escreva  ("    • Digite aqui a sua resposta: ")
+         leia (resposta_processo_cursos)
+
+escolha resposta_processo_cursos
+
+caso "1"
+
+para notas_adm de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |             INSIRA AS NOTAS DO ALUNO CORRESPONDENTE               |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+Escreval
+Escreval ("    • ALUNO 01: ", nome_aluno_adm[1])
+Escreval ("    • ALUNO 02: ", nome_aluno_adm[2])
+Escreval ("    • ALUNO 03: ", nome_aluno_adm[3])
+Escreval ("    • ALUNO 04: ", nome_aluno_adm[4])
+Escreval ("    • ALUNO 05: ", nome_aluno_adm[5])
+Escreval
+Escreval ("    • ALUNO: ", notas_adm)
+Escreval
+Escreval ("    • CURSO: ADMINISTRAÇÃO")
+
+Escreva ("     • Insira a nota do 1º BIMESTRE: ")
+        leia (bim01_adm[notas_adm])
+Escreva ("     • Insira a nota do 2º BIMESTRE: ")
+        leia (bim02_adm[notas_adm])
+Escreva ("     • Insira a nota do 3º BIMESTRE: ")
+        leia (bim03_adm[notas_adm])
+Escreva ("     • Insira a nota do 4º BIMESTRE: ")
+        leia (bim04_adm[notas_adm])
+Escreval
+
+somabim_adm_aluno01 <- bim01_adm[1] + bim02_adm[1] + bim03_adm[1] + bim04_adm[1]
+media_adm_aluno01 <- somabim_adm_aluno01 / 4
+
+somabim_adm_aluno02 <- bim01_adm[2] + bim02_adm[2] + bim03_adm[2] + bim04_adm[2]
+media_adm_aluno02 <- somabim_adm_aluno02 / 4
+
+somabim_adm_aluno03 <- bim01_adm[3] + bim02_adm[3] + bim03_adm[3] + bim04_adm[3]
+media_adm_aluno03 <- somabim_adm_aluno03 / 4
+
+somabim_adm_aluno04 <- bim01_adm[4] + bim02_adm[4] + bim03_adm[4] + bim04_adm[4]
+media_adm_aluno04 <- somabim_adm_aluno04 / 4
+
+somabim_adm_aluno05 <- bim01_adm[5] + bim02_adm[5] + bim03_adm[5] + bim04_adm[5]
+media_adm_aluno05 <- somabim_adm_aluno05 / 4
+
+soma_media_adm <- media_adm_aluno01+media_adm_aluno02+media_adm_aluno03+media_adm_aluno04+media_adm_aluno05
+media_turma_adm <- soma_media_adm / 5
+
+
+fimpara
+limpatela
+
+Escreval
+Escreval ("    • ALUNO 01: ", nome_aluno_adm[1]," = TOTAL SEMESTRE: ",somabim_adm_aluno01," | MÉDIA SEMESTRAL: ",media_adm_aluno01)
+Escreval ("    • ALUNO 02: ", nome_aluno_adm[2]," = TOTAL SEMESTRE: ",somabim_adm_aluno02," | MÉDIA SEMESTRAL: ",media_adm_aluno02)
+Escreval ("    • ALUNO 03: ", nome_aluno_adm[3]," = TOTAL SEMESTRE: ",somabim_adm_aluno03," | MÉDIA SEMESTRAL: ",media_adm_aluno03)
+Escreval ("    • ALUNO 04: ", nome_aluno_adm[4]," = TOTAL SEMESTRE: ",somabim_adm_aluno04," | MÉDIA SEMESTRAL: ",media_adm_aluno04)
+Escreval ("    • ALUNO 05: ", nome_aluno_adm[5]," = TOTAL SEMESTRE: ",somabim_adm_aluno05," | MÉDIA SEMESTRAL: ",media_adm_aluno05)
+Escreval
+Escreval ("    • MÉDIA DA TURMA: ", media_turma_adm)
+
+
+Escreval
+Escreval ("                 • NOTAS DA TURMA DE ADMINISTRAÇÃO INSERIDAS! •             ")
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                                 ADMINISTRAÇÃO                                ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+caso "2"
+
+para notas_redes de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |             INSIRA AS NOTAS DO ALUNO CORRESPONDENTE               |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+Escreval
+Escreval ("    • ALUNO 01: ", nome_aluno_redes[1])
+Escreval ("    • ALUNO 02: ", nome_aluno_redes[2])
+Escreval ("    • ALUNO 03: ", nome_aluno_redes[3])
+Escreval ("    • ALUNO 04: ", nome_aluno_redes[4])
+Escreval ("    • ALUNO 05: ", nome_aluno_redes[5])
+Escreval
+Escreval ("    • ALUNO: ", notas_redes)
+Escreval
+Escreval ("    • CURSO: REDES E COMPUTADORES")
+
+Escreva ("     • Insira a nota do 1º BIMESTRE: ")
+        leia (bim01_redes[notas_redes])
+Escreva ("     • Insira a nota do 2º BIMESTRE: ")
+        leia (bim02_redes[notas_redes])
+Escreva ("     • Insira a nota do 3º BIMESTRE: ")
+        leia (bim03_redes[notas_redes])
+Escreva ("     • Insira a nota do 4º BIMESTRE: ")
+        leia (bim04_redes[notas_redes])
+Escreval
+
+somabim_redes_aluno01 <- bim01_redes[1] + bim02_redes[1] + bim03_redes[1] + bim04_redes[1]
+media_redes_aluno01 <- somabim_redes_aluno01 / 4
+
+somabim_redes_aluno02 <- bim01_redes[2] + bim02_redes[2] + bim03_redes[2] + bim04_redes[2]
+media_redes_aluno02 <- somabim_redes_aluno02 / 4
+
+somabim_redes_aluno03 <- bim01_redes[3] + bim02_redes[3] + bim03_redes[3] + bim04_redes[3]
+media_redes_aluno03 <- somabim_redes_aluno03 / 4
+
+somabim_redes_aluno04 <- bim01_redes[4] + bim02_redes[4] + bim03_redes[4] + bim04_redes[4]
+media_redes_aluno04 <- somabim_redes_aluno04 / 4
+
+somabim_redes_aluno05 <- bim01_redes[5] + bim02_redes[5] + bim03_redes[5] + bim04_redes[5]
+media_redes_aluno05 <- somabim_redes_aluno05 / 4
+
+soma_media_redes <- media_redes_aluno01+media_redes_aluno02+media_redes_aluno03+media_redes_aluno04+media_redes_aluno05
+media_turma_redes <- soma_media_redes / 5
+
+
+fimpara
+limpatela
+
+Escreval
+Escreval ("    • ALUNO 01: ", nome_aluno_redes[1]," = TOTAL SEMESTRE: ",somabim_redes_aluno01," | MÉDIA SEMESTRAL: ",media_redes_aluno01)
+Escreval ("    • ALUNO 02: ", nome_aluno_redes[2]," = TOTAL SEMESTRE: ",somabim_redes_aluno02," | MÉDIA SEMESTRAL: ",media_redes_aluno02)
+Escreval ("    • ALUNO 03: ", nome_aluno_redes[3]," = TOTAL SEMESTRE: ",somabim_redes_aluno03," | MÉDIA SEMESTRAL: ",media_redes_aluno03)
+Escreval ("    • ALUNO 04: ", nome_aluno_redes[4]," = TOTAL SEMESTRE: ",somabim_redes_aluno04," | MÉDIA SEMESTRAL: ",media_redes_aluno04)
+Escreval ("    • ALUNO 05: ", nome_aluno_redes[5]," = TOTAL SEMESTRE: ",somabim_redes_aluno05," | MÉDIA SEMESTRAL: ",media_redes_aluno05)
+Escreval
+Escreval ("    • MÉDIA DA TURMA: ", media_turma_redes)
+
+
+Escreval
+Escreval ("                       • NOTAS DA TURMA DE REDES INSERIDAS! •                 ")
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                                      REDES                                   ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+caso "3"
+
+para notas_ds de 1 ate 5 faca
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |             INSIRA AS NOTAS DO ALUNO CORRESPONDENTE               |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+Escreval
+Escreval ("    • ALUNO 01: ", nome_aluno_ds[1])
+Escreval ("    • ALUNO 02: ", nome_aluno_ds[2])
+Escreval ("    • ALUNO 03: ", nome_aluno_ds[3])
+Escreval ("    • ALUNO 04: ", nome_aluno_ds[4])
+Escreval ("    • ALUNO 05: ", nome_aluno_ds[5])
+Escreval
+Escreval ("    • ALUNO: ", notas_ds)
+Escreval
+Escreval ("    • CURSO: DESENVOLVIMENTO DE SISTEMAS")
+
+Escreva ("     • Insira a nota do 1º BIMESTRE: ")
+        leia (bim01_adm[notas_ds])
+Escreva ("     • Insira a nota do 2º BIMESTRE: ")
+        leia (bim02_adm[notas_ds])
+Escreva ("     • Insira a nota do 3º BIMESTRE: ")
+        leia (bim03_adm[notas_ds])
+Escreva ("     • Insira a nota do 4º BIMESTRE: ")
+        leia (bim04_adm[notas_ds])
+Escreval
+
+somabim_ds_aluno01 <- bim01_ds[1] + bim02_ds[1] + bim03_ds[1] + bim04_ds[1]
+media_ds_aluno01 <- somabim_ds_aluno01 / 4
+
+somabim_ds_aluno02 <- bim01_ds[2] + bim02_ds[2] + bim03_ds[2] + bim04_ds[2]
+media_ds_aluno02 <- somabim_ds_aluno02 / 4
+
+somabim_ds_aluno03 <- bim01_ds[3] + bim02_ds[3] + bim03_ds[3] + bim04_ds[3]
+media_ds_aluno03 <- somabim_ds_aluno03 / 4
+
+somabim_adm_aluno04 <- bim01_ds[4] + bim02_ds[4] + bim03_ds[4] + bim04_ds[4]
+media_ds_aluno04 <- somabim_ds_aluno04 / 4
+
+somabim_adm_aluno05 <- bim01_ds[5] + bim02_ds[5] + bim03_ds[5] + bim04_ds[5]
+media_ds_aluno05 <- somabim_ds_aluno05 / 4
+
+soma_media_ds <- media_ds_aluno01+media_ds_aluno02+media_ds_aluno03+media_ds_aluno04+media_ds_aluno05
+media_turma_ds <- soma_media_ds / 5
+
+
+fimpara
+limpatela
+
+Escreval ("    • ALUNO 01: ", nome_aluno_ds[1]," = TOTAL SEMESTRE: ",somabim_ds_aluno01," | MÉDIA SEMESTRAL: ",media_ds_aluno01)
+Escreval ("    • ALUNO 02: ", nome_aluno_ds[2]," = TOTAL SEMESTRE: ",somabim_ds_aluno02," | MÉDIA SEMESTRAL: ",media_ds_aluno02)
+Escreval ("    • ALUNO 03: ", nome_aluno_ds[3]," = TOTAL SEMESTRE: ",somabim_ds_aluno03," | MÉDIA SEMESTRAL: ",media_ds_aluno03)
+Escreval ("    • ALUNO 04: ", nome_aluno_ds[4]," = TOTAL SEMESTRE: ",somabim_ds_aluno04," | MÉDIA SEMESTRAL: ",media_ds_aluno04)
+Escreval ("    • ALUNO 05: ", nome_aluno_ds[5]," = TOTAL SEMESTRE: ",somabim_ds_aluno05," | MÉDIA SEMESTRAL: ",media_ds_aluno05)
+Escreval
+Escreval ("    • MÉDIA DA TURMA: ", media_turma_ds)
+
+
+Escreval
+Escreval ("                 • NOTAS DA TURMA DE DESENVOLVIMENTO INSERIDAS! •             ")
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                                 DESENVOLVIMENTO                              ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+         
+fimescolha
+fimescolha
+//FINAL ADICIONAR NOTAS
+fimprocedimento
+// FINAL DO PROCEDIMENTO
+
+
+
+//INICIO PROCEDIMENTO DE CONSULTA
+procedimento ROTCONSULTA
+inicio
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |                      SISTEMA DE CONSULTA                          |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval ("    |  |                     1 - TURMAS/ALUNOS                             |  |")
+Escreval ("    |  |                     2 - DOCENTES                                  |  |")
+Escreval ("    |  |                     3 - NOTAS                                     |  |")
+Escreval
+
+Escreva  ("                        Escreva aqui a opção desejada: ")
+         leia (resposta_cadastro)
+
+escolha resposta_cadastro
+
+caso "1"
+limpatela
+
+Escreval
+Escreval
+
+Escreval ("• ADMINISTRAÇÃO •")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[1]," | ADMINISTRAÇÃO")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[2]," | ADMINISTRAÇÃO")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[3]," | ADMINISTRAÇÃO")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[4]," | ADMINISTRAÇÃO")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[5]," | ADMINISTRAÇÃO")
+
+Escreval
+Escreval
+Escreval
+
+Escreval ("• REDES E COMPUTADORES •")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[1]," | REDES E COMPUTADORES")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[2]," | REDES E COMPUTADORES")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[3]," | REDES E COMPUTADORES")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[4]," | REDES E COMPUTADORES")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[5]," | REDES E COMPUTADORES")
+
+Escreval
+Escreval
+Escreval
+
+Escreval ("• DESENVOLVIMENTO DE SISTEMAS •")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[1]," | DESENVOLVIMENTO DE SISTEMAS")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[2]," | DESENVOLVIMENTO DE SISTEMAS")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[3]," | DESENVOLVIMENTO DE SISTEMAS")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[4]," | DESENVOLVIMENTO DE SISTEMAS")
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[5]," | DESENVOLVIMENTO DE SISTEMAS")
+
+Escreval
+Escreval
+
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+
+
+
+
+
+caso "2"
+
+limpatela
+
+Escreval
+Escreval ("    • DOCENTES | SGES")
+Escreval ("----------------------------------")
+Escreval
+Escreval ("DOCENTE DE ADMINISTRAÇÃO: ", cadastro_prof[1] )
+Escreval
+Escreval ("DOCENTE DE REDES: ", cadastro_prof[2] )
+Escreval
+Escreval ("DOCENTE DE DESENVOLVIMENTO: ", cadastro_prof[3] )
+
+Escreval
+Escreval
+
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+fimescolha
+
+escolha resposta_cadastro
+caso "3"
+
+limpatela
+
+Escreval ("     _________________________________________________________________________ ")
+Escreval ("    |   ___________________________________________________________________   |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |                           • SGES •                                |  |")
+Escreval ("    |  |               INSIRA A TURMA QUE DESEJA CONSULTAR                 |  |")
+Escreval ("    |  |                                                                   |  |")
+Escreval ("    |  |___________________________________________________________________|  |")
+Escreval ("    |_________________________________________________________________________|")
+
+Escreval
+Escreval ("    Selecione a TURMA:                         ")
+Escreval
+Escreval ("    • Administração (Digite '1')               ")
+Escreval ("    • Redes e computadores (Digite '2')        ")
+Escreval ("    • Desenvolviment o de Sistemas (Digite '3') ")
+Escreval
+Escreva  ("    • Digite aqui a sua resposta: ")
+         leia (resposta_processo_cursos)
+
+escolha resposta_processo_cursos
+
+caso "1"
+
+limpatela
+
+Escreval ("• ADMINISTRAÇÃO •")
+Escreval
+
+Escreval ("• Aluno(a): ",nome_aluno_adm[1]," | NOTA: ",media_adm_aluno01)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[2]," | NOTA: ",media_adm_aluno02)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[3]," | NOTA: ",media_adm_aluno03)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[4]," | NOTA: ",media_adm_aluno04)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_adm[5]," | NOTA: ",media_adm_aluno05)
+
+Escreval
+
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+caso "2"
+
+limpatela
+
+Escreval ("• REDES E COMPUTADORES •")
+Escreval
+
+Escreval ("• Aluno(a): ",nome_aluno_redes[1]," | NOTA: ",media_redes_aluno01)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[2]," | NOTA: ",media_redes_aluno02)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[3]," | NOTA: ",media_redes_aluno03)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[4]," | NOTA: ",media_redes_aluno04)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_redes[5]," | NOTA: ",media_redes_aluno05)
+
+Escreval
+
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+caso "3"
+
+limpatela
+
+Escreval ("• DESENVOLVIMENTO DE SISTEMAS •")
+Escreval
+
+Escreval ("• Aluno(a): ",nome_aluno_ds[1]," | NOTA: ",media_ds_aluno01)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[2]," | NOTA: ",media_ds_aluno02)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[3]," | NOTA: ",media_ds_aluno03)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[4]," | NOTA: ",media_ds_aluno04)
+Escreval
+Escreval ("• Aluno(a): ",nome_aluno_ds[5]," | NOTA: ",media_ds_aluno05)
+
+Escreval
+
+Escreval ("    ________________________________________________________________________  ")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+         leia(resp)
+
+
+fimescolha
+fimescolha
+fimprocedimento
