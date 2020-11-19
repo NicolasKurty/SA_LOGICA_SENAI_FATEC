@@ -1,0 +1,16 @@
+O SGES (Sistema de Gestão Escolar) funciona da seguinte maneira:
+
+Primeiro você deve cadastrar as pessoas que participarão do processo seletivo dos respectivos cursos disponíveis. Existem 3 cursos disponíveis para
+o cadastro, eles são: "Administração", "Redes e Computadores", "Desenvolvimento de Sistemas"
+
+Os alunos que forem aprovados no processo seletivo devem ser matriculados nos respectivos cursos selecionados.
+
+Os docentes de cada turma deverão também ser matriculados nas respectivas turmas.
+
+As notas semestrais dos alunos deverão também ser adicionadas, e no final apareça a soma total dos pontos e a média individual de cada aluno e da turma.
+
+A parte de consulta só conseguira ser utilizada caso os dados no cadastro sejam inseridos!
+
+Você consegue consultar os alunos de cada turma, os docentes dessas turmas e as notas dos alunos.
+
+Você pode pedir um relatório ao programa de todas as informações de todos os alunos, basta selecionar a opção “RELATÓRIO”.
