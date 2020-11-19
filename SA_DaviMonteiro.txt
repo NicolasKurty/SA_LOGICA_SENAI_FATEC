@@ -1,0 +1,25 @@
+caso "5"
+
+Escreval
+Escreval ("    ___________________________________________________________________________")
+Escreval
+Escreval ("                          PARA ACESSAR A AJUDA COPIE O LINK                    ")
+Escreval ("                         E COLE NO SEU NAVEGADOR DE INTERNET                   ")
+Escreval ("    ===========================================================================")
+Escreval
+Escreval ("                         LINK ESTÁ ANEXADO JUNTO AO ARQUIVO!                ")
+Escreval
+Escreval ("    ===========================================================================")
+Escreval
+Escreval ("                    OU SE PREFERIR ENTRE EM CONTATO COM O SUPORTE              ")
+Escreval ("                     (31)99987-2307 | nicolaskurtsouza@gmail.com               ")
+Escreval
+Escreval ("    ===========================================================================")
+Escreval
+Escreval ("    ___________________________________________________________________________")
+Escreval
+Escreval ("                             DESEJA VOLTAR AO MENU ?                          ")
+Escreval ("                                1 - SIM | 2 - NAO                             ")
+Escreval
+Escreva  ("                           DIGITE AQUI A SUA RESPOSTA: ")
+leia (resp)
